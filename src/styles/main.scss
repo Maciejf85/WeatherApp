@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css?family=Material+Icons|Lato:300,400,700|Ubuntu:400,500,500i&subset=latin-ext");
+@import "css-reset-and-normalize";
+
+@import "./base.scss";
+@import "./header.scss";
+
+form {
+  &.find-city {
+    display: flex;
+    align-items: center;
+
+    input {
+      border: 1px solid #eaeaea;
+      border-radius: 8px;
+      padding: 6px;
+      font-size: 0.8rem;
+      outline: none;
+      color: #333;
+      width: 100%;
+
+      &::placeholder {
+        font-family: "Lato", sans-serif;
+      }
+    }
+
+    button {
+      background: transparent;
+      cursor: pointer;
+      box-shadow: none;
+      border: none;
+      color: #ffc200;
+      outline: none;
+    }
+  }
+}
+
+.weather {
+  display: flex;
+  align-items: center;
+
+  &__icon {
+    img {
+      width: 140px;
+    }
+  }
+
+  &__info {
+    margin-left: 25px;
+    font-family: "Ubuntu", sans-serif;
+
+    .city {
+      font-family: "Ubuntu", sans-serif;
+      font-size: 1.5rem;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .temperature {
+      font-family: "Ubuntu", sans-serif;
+      font-size: 3rem;
+      color: #333030;
+      font-weight: 500;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+header {
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 65px;
+    max-width: 850px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 500;
+    font-style: italic;
+
+    img {
+      width: 45px;
+    }
+  }
+}
