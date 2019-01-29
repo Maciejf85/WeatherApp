@@ -16,7 +16,6 @@ class Weather {
             fn(item);
         })
     }
-
 }
 
 export default Weather;

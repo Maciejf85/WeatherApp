@@ -61,5 +61,21 @@ form {
       color: #333030;
       font-weight: 500;
     }
+
+    .temperature__feel {
+      margin: 0.3rem 0 0 0.7rem;
+      font-family: "Ubuntu", sans-serif;
+      font-size: 1rem;
+      color: #333030;
+      font-weight: 500;
+    }
+
+    .temperature__description {
+      margin-right: 0.3rem;
+      font-family: "Ubuntu", sans-serif;
+      font-size: 1rem;
+      color: #222020;
+      font-weight: 500;
+    }
   }
 }
