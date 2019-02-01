@@ -5,23 +5,17 @@ class Airly {
                this.lng = lng,
                this.apikey = 'dQnvbbAkXgIFwVA3eGBQNCAQMQdiLWLk',
                this.apiURL = 'https://airapi.airly.eu/v2/measurements/nearest?',
-               this.maxDistance = 5
+               this.maxDistance = 20
      }
-     getAirlyData() {
+     getAirlyData(fn) {
           $.ajax({
                url: `${this.apiURL}apikey=${this.apikey}&Accept=application/json&lat=${this.lat}&lng=${this.lng}&maxDistanceKM=${this.maxDistance}`
           }).done(function (response) {
-               console.log(response.current.values[0].name)
-               console.log(response.current.values[0].value)
-               console.log(response.current.values[1].name)
-               console.log(response.current.values[1].value)
-               console.log(response.current.values[2].name)
-               console.log(response.current.values[2].value)
+               fn(response);
           }).fail(function (error) {
-               console.log(error.status)
+               fn(error);
           })
      }
 }
-
 
 export default Airly;

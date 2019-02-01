@@ -17,18 +17,33 @@
   </header>
 
   <section id="app" class="container">
+
+    <!-- szukajka -->
     <div class="module">
       <button class="btn btn--icon btn--close"><i class="material-icons">close</i></button>
       <h2>Znajdź miasto</h2>
 
+
       <form novalidate autocomplete="off" class="find-city">
         <input type="text" name="search" id="search" placeholder="miasto..." />
+
         <button type="submit"><i class="material-icons">search</i></button>
+        <div class="autocomplete">
+          <ul class="cityList">
+          </ul>
+        </div>
+
+
       </form>
     </div>
+    <!-- koniec szukajki -->
 
-    <div class="module">
+
+    <div class="module item" style="display:none">
       <button class="btn btn--icon btn--close"><i class="material-icons">close</i></button>
+
+      <div class="infoTip"><i class="material-icons">my_location</i>auto location</div>
+
 
       <div class="weather">
         <div class="weather__icon"><img src="images/icons/sun.svg" /></div>
@@ -40,6 +55,26 @@
           <div class="temperature">25.5&deg;C</div>
           <div class="temperature__feel">odczuwalna 15.5&deg;C</div>
         </div>
+        <div class="weather__data">
+          <div class="weather__data__left">
+            <span class="sunrise">sunrise : 7:30</span>
+            <span class="sunset">sunset : 16:00</span>
+            <span class="humidity">humidity : 70% </span>
+          </div>
+          <div class="weather__data__right">
+            <span class="pressure">pressure: 1050hPa</span>
+            <span class="windSpeed">wind speed : 15km/h</span>
+            <span class="cloudCover"> cloud cover : 60%</span>
+            <span class="visibility">visibility : +10km</span>
+          </div>
+        </div>
+        <div class="airQuality">
+          <span class="pm1"></span>
+          <span class="pm25"></span>
+          <span class="pm10"></span>
+        </div>
+
+
       </div>
     </div>
   </section>

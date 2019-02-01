@@ -5,12 +5,12 @@ const MiniCSS = require("mini-css-extract-plugin");
 const Compression = require("compression-webpack-plugin");
 const Clean = require("clean-webpack-plugin");
 
-module.exports = function(env) {
+module.exports = function (env) {
   const config = {};
 
   const isDev = env.dev ? true : false;
   const isProd = env.prod ? true : false;
-  
+
   config.entry = `./src/app.js`;
   config.output = {
     filename: isDev ? "[name].js" : "[name].[chunkhash].js",
@@ -109,12 +109,14 @@ module.exports = function(env) {
     new Html({
       filename: "index.html",
       template: `./index.html`,
-      minify: false
+      minify: true
     })
   );
 
   if (isProd) {
-    config.plugins.push(new MiniCSS({ filename: "app.[chunkhash].css" }));
+    config.plugins.push(new MiniCSS({
+      filename: "app.[chunkhash].css"
+    }));
 
     config.plugins.push(
       new Compression({

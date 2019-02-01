@@ -17,7 +17,6 @@ class GeoLocation {
             }
         }).done((response) => {
             fn(response)
-
         }).fail(function (error) {
             console.log(error)
         })

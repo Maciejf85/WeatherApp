@@ -23,6 +23,46 @@ form {
       }
     }
 
+    // #search:focus~.autocomplete {
+    //   display: block;
+    // }
+
+    // #search:not(focus)~.autocomplete {
+    //   display: none;
+    // }
+
+    .autocomplete {
+      position: absolute;
+      top: 88px;
+      left: 20px;
+      width: 694px;
+      border: 1px solid #eaeaea;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+      padding: 6px;
+      font-size: 0.8rem;
+      color: #333333a4;
+      background: white;
+      border-top: transparent;
+      font-style: italic;
+      z-index: 1;
+    }
+
+    .cityList {
+      list-style: none;
+
+      &>li {
+        padding: 3px 0;
+      }
+
+      &>li:hover {
+        background: #ececec;
+        cursor: pointer;
+      }
+    }
+
+
+
     button {
       background: transparent;
       cursor: pointer;
@@ -37,16 +77,22 @@ form {
 .weather {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  // border: 1px solid red;
 
   &__icon {
     img {
       width: 140px;
+      // border: 1px solid green;
+
     }
   }
 
   &__info {
-    margin-left: 25px;
+    margin-left: 0px;
     font-family: "Ubuntu", sans-serif;
+    // border: 1px solid blue;
+
 
     .city {
       font-family: "Ubuntu", sans-serif;
@@ -76,6 +122,59 @@ form {
       font-size: 1rem;
       color: #222020;
       font-weight: 500;
+    }
+  }
+
+  &__data {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    // border: 1px solid black;
+
+    .sunrise,
+    .sunset,
+    .humidity,
+    .pressure,
+    .windSpeed,
+    .cloudCover,
+    .visibility {
+      min-width: 40px;
+      display: inline-block;
+      padding: 5px;
+      // border: 1px solid yellow;
+      font-size: 0.8rem;
+      color: #333;
+    }
+
+    &__left {
+      width: 40%;
+      height: 100%;
+      // border: 1px solid red;
+    }
+
+    &__right {
+      width: 50%;
+      height: 100%;
+      // border: 1px solid yellow;
+    }
+  }
+
+  .airQuality {
+    height: 1.1rem;
+    line-height: 1.1rem;
+    width: 100%;
+    background: #ffc200;
+    border-radius: 10px;
+    font-size: 0.8rem;
+
+    span {
+      display: inline-block;
+      color: black;
+      text-align: center;
+      min-width: 20%;
+      max-width: 50%;
+
     }
   }
 }
