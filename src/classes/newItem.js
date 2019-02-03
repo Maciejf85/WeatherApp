@@ -1,6 +1,8 @@
 class WeatherItem {
-     constructor(icon, sunrise, sunset, temp, tempF, minTemp, maxTemp, humidity, windSpeed, cloudCover, visibility, pressure, cityName, pm1, pm25, pm10, airAdvice, airColor, airLevel) {
+     constructor(icon, timezone, description, sunrise, sunset, temp, tempF, minTemp, maxTemp, humidity, windSpeed, cloudCover, visibility, pressure, cityName, country, pm1, pm25, pm10, airAdvice, airColor, airLevel) {
           this.icon = icon,
+               this.timezone = timezone,
+               this.description = description,
                this.sunrise = sunrise,
                this.sunset = sunset,
                this.temp = temp,
@@ -13,6 +15,7 @@ class WeatherItem {
                this.visibility = visibility,
                this.pressure = pressure,
                this.cityName = cityName,
+               this.country = country,
                this.pm1 = pm1,
                this.pm25 = pm25,
                this.pm10 = pm10,
@@ -24,6 +27,8 @@ class WeatherItem {
      displayVal() {
           console.log(this.icon + '\n',
                'sunrise ' + this.sunrise + '\n',
+               'country ' + this.country + '\n',
+               'city ' + this.cityName + '\n',
                'sunset ' + this.sunset + '\n',
                'temp ' + this.temp + '\n',
                'tempF ' + this.tempF + '\n',

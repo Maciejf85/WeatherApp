@@ -8,6 +8,7 @@ form {
   &.find-city {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 
     input {
       border: 1px solid #eaeaea;
@@ -16,36 +17,38 @@ form {
       font-size: 0.8rem;
       outline: none;
       color: #333;
-      width: 100%;
+      width: 90%;
 
       &::placeholder {
         font-family: "Lato", sans-serif;
       }
     }
 
-    // #search:focus~.autocomplete {
-    //   display: block;
-    // }
+    #search:focus~.autocomplete,
+    #search:active~.autocomplete {
+      visibility: visible;
+      margin-top: -5px;
+    }
 
-    // #search:not(focus)~.autocomplete {
-    //   display: none;
-    // }
+    #search:not(focus)~.autocomplete {
+      transition-delay: 0.3s;
+      visibility: hidden;
+    }
 
     .autocomplete {
-      position: absolute;
-      top: 88px;
-      left: 20px;
-      width: 694px;
+      width: 90%;
       border: 1px solid #eaeaea;
       border-bottom-left-radius: 8px;
       border-bottom-right-radius: 8px;
+      font-size: 0.8rem;
+      outline: none;
       padding: 6px;
       font-size: 0.8rem;
       color: #333333a4;
       background: white;
       border-top: transparent;
       font-style: italic;
-      z-index: 1;
+      z-index: 3;
     }
 
     .cityList {
@@ -61,8 +64,6 @@ form {
       }
     }
 
-
-
     button {
       background: transparent;
       cursor: pointer;
@@ -77,14 +78,23 @@ form {
 .weather {
   display: flex;
   align-items: center;
+  justify-content: space-around;
   flex-wrap: wrap;
+  filter: blur(7px);
   // border: 1px solid red;
 
   &__icon {
-    img {
-      width: 140px;
-      // border: 1px solid green;
+    max-width: 120px;
+    font-size: 12px;
 
+    img {
+      width: 130px;
+      // border: 1px solid green;
+    }
+
+    &__icon__description {
+      text-align: center;
+      // word-wrap: break-word;
     }
   }
 
@@ -96,9 +106,18 @@ form {
 
     .city {
       font-family: "Ubuntu", sans-serif;
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       color: #333;
-      margin-bottom: 10px;
+      margin-bottom: 0.2rem;
+    }
+
+    .timezone {
+      font-family: "Ubuntu", sans-serif;
+      font-size: 0.8rem;
+      color: #333;
+      text-indent: 0.5rem;
+      font-style: italic;
+      margin-bottom: 0.3rem;
     }
 
     .temperature {
@@ -127,9 +146,10 @@ form {
 
   &__data {
     display: flex;
-    align-items: center;
+    align-items: baseline;
     justify-content: center;
     width: 50%;
+    height: 160px;
     // border: 1px solid black;
 
     .sunrise,
@@ -139,42 +159,60 @@ form {
     .windSpeed,
     .cloudCover,
     .visibility {
-      min-width: 40px;
-      display: inline-block;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      max-width: 100%;
+      min-height: 33px;
       padding: 5px;
-      // border: 1px solid yellow;
+      margin: 5px 0;
+      // border: 1px solid #585858;
       font-size: 0.8rem;
       color: #333;
     }
 
-    &__left {
-      width: 40%;
-      height: 100%;
-      // border: 1px solid red;
-    }
-
+    &__left,
     &__right {
-      width: 50%;
       height: 100%;
-      // border: 1px solid yellow;
+
+      img {
+        width: 2rem;
+      }
+
+      span {
+        padding: 0 3px;
+        text-align: center;
+      }
     }
   }
 
   .airQuality {
-    height: 1.1rem;
-    line-height: 1.1rem;
-    width: 100%;
-    background: #ffc200;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-height: 160px;
     border-radius: 10px;
     font-size: 0.8rem;
+    // overflow: hidden;
+  }
 
-    span {
-      display: inline-block;
+  .pm1,
+  .pm25,
+  .pm10 {
+    padding: 10px 5px;
+    border-radius: 10px;
+    margin: 5px 0;
+
+    &__icon {
       color: black;
       text-align: center;
-      min-width: 20%;
-      max-width: 50%;
-
+      margin: 3px 0;
     }
+
+    &__value {
+      font-weight: bold;
+      text-align: center;
+    }
+
   }
 }

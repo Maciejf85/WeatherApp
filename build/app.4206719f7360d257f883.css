@@ -1,0 +1,387 @@
+@import url(https://fonts.googleapis.com/css?family=Material+Icons|Lato:300,400,700|Ubuntu:400,500,500i&subset=latin-ext);
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, main, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block; }
+
+*, ::after, ::before {
+  box-sizing: inherit; }
+
+html {
+  box-sizing: border-box;
+  touch-action: manipulation;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -ms-overflow-style: scrollbar;
+  -webkit-tap-highlight-color: transparent; }
+
+body {
+  line-height: 1;
+  font-family: sans-serif;
+  text-align: left; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote::after, blockquote::before, q::after, q::before {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+caption {
+  caption-side: bottom; }
+
+th {
+  text-align: inherit; }
+
+hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible; }
+
+code, kbd, pre, samp {
+  font-family: monospace,monospace; }
+
+pre {
+  overflow: auto;
+  -ms-overflow-style: scrollbar; }
+
+a {
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects; }
+
+abbr[title] {
+  border-bottom: none;
+  text-decoration: underline;
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
+  cursor: help;
+  -webkit-text-decoration-skip-ink: none;
+          text-decoration-skip-ink: none; }
+
+b, strong {
+  font-weight: bolder; }
+
+small {
+  font-size: 80%; }
+
+sub, sup {
+  position: relative;
+  font-size: 75%;
+  line-height: 0; }
+
+sub {
+  bottom: -.25em; }
+
+sup {
+  top: -.5em; }
+
+img {
+  border-style: none; }
+
+svg:not(:root) {
+  overflow: hidden; }
+
+button {
+  border-radius: 0; }
+
+button:focus {
+  outline: 1px dotted;
+  outline: 5px auto -webkit-focus-ring-color; }
+
+button, input, optgroup, select, textarea {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit; }
+
+button, select {
+  text-transform: none; }
+
+[type=button], [type=reset], [type=submit], button {
+  -webkit-appearance: button; }
+
+input[type=date], input[type=datetime-local], input[type=month], input[type=time] {
+  -webkit-appearance: listbox; }
+
+textarea {
+  overflow: auto;
+  resize: vertical; }
+
+button, input {
+  overflow: visible; }
+
+button, select {
+  text-transform: none; }
+
+[type=button]::-moz-focus-inner, [type=reset]::-moz-focus-inner, [type=submit]::-moz-focus-inner, button::-moz-focus-inner {
+  border-style: none;
+  padding: 0; }
+
+input[type=checkbox], input[type=radio] {
+  box-sizing: border-box;
+  padding: 0; }
+
+[tabindex="-1"]:focus {
+  outline: 0 !important; }
+
+fieldset {
+  min-width: 0; }
+
+legend {
+  max-width: 100%;
+  white-space: normal;
+  color: inherit;
+  display: block; }
+
+progress {
+  vertical-align: baseline; }
+
+textarea {
+  overflow: auto; }
+
+[type=checkbox], [type=radio] {
+  box-sizing: border-box;
+  padding: 0; }
+
+[type=number]::-webkit-inner-spin-button, [type=number]::-webkit-outer-spin-button {
+  height: auto; }
+
+[type=search] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px; }
+
+[type=search]::-webkit-search-cancel-button, [type=search]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit; }
+
+output {
+  display: inline-block; }
+
+template {
+  display: none; }
+
+[hidden] {
+  display: none; }
+
+body {
+  font-family: "Lato", sans-serif;
+  background-color: #f8f8f8; }
+
+h2 {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 20px; }
+
+.container {
+  margin: 0 auto;
+  max-width: 800px;
+  width: 100%;
+  padding: 0 15px; }
+
+#app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; }
+
+.btn {
+  border-radius: 8px;
+  background-color: #ffc200;
+  color: #fff;
+  border: none;
+  align-items: center;
+  cursor: pointer;
+  padding: 5px 10px;
+  display: flex;
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
+  outline: none; }
+  .btn--icon {
+    font-size: .8rem;
+    padding: 2px 4px;
+    display: inline-block;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px; }
+    .btn--icon i {
+      font-size: .8rem; }
+  .btn--close {
+    position: absolute;
+    right: 15px;
+    top: 15px; }
+  .btn--location {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    color: black; }
+
+.infoTip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffc200;
+  width: 120px;
+  height: 18px;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  text-align: center; }
+  .infoTip i {
+    font-size: 0.8rem;
+    padding: 0 5px; }
+
+.module {
+  background-color: #ffffff;
+  padding: 20px;
+  box-shadow: 0 6px 15px 2px rgba(0, 0, 0, 0.1);
+  margin: 50px 0 0;
+  border-radius: 8px;
+  width: 100%;
+  position: relative; }
+
+header {
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1); }
+  header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 65px;
+    max-width: 1000px; }
+  header .logo {
+    display: flex;
+    align-items: center;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 500;
+    font-style: italic; }
+    header .logo img {
+      width: 45px; }
+
+form.find-city {
+  display: flex;
+  align-items: center; }
+  form.find-city input {
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    padding: 6px;
+    font-size: 0.8rem;
+    outline: none;
+    color: #333;
+    width: 100%; }
+    form.find-city input::placeholder {
+      font-family: "Lato", sans-serif; }
+  form.find-city .autocomplete {
+    position: absolute;
+    top: 88px;
+    left: 20px;
+    width: 694px;
+    border: 1px solid #eaeaea;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    padding: 6px;
+    font-size: 0.8rem;
+    color: #333333a4;
+    background: white;
+    border-top: transparent;
+    font-style: italic;
+    z-index: 1; }
+  form.find-city .cityList {
+    list-style: none; }
+    form.find-city .cityList > li {
+      padding: 3px 0; }
+    form.find-city .cityList > li:hover {
+      background: #ececec;
+      cursor: pointer; }
+  form.find-city button {
+    background: transparent;
+    cursor: pointer;
+    box-shadow: none;
+    border: none;
+    color: #ffc200;
+    outline: none; }
+
+.weather {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap; }
+  .weather__icon img {
+    width: 140px; }
+  .weather__info {
+    margin-left: 0px;
+    font-family: "Ubuntu", sans-serif; }
+    .weather__info .city {
+      font-family: "Ubuntu", sans-serif;
+      font-size: 1.5rem;
+      color: #333;
+      margin-bottom: 10px; }
+    .weather__info .temperature {
+      font-family: "Ubuntu", sans-serif;
+      font-size: 3rem;
+      color: #333030;
+      font-weight: 500; }
+    .weather__info .temperature__feel {
+      margin: 0.3rem 0 0 0.7rem;
+      font-family: "Ubuntu", sans-serif;
+      font-size: 1rem;
+      color: #333030;
+      font-weight: 500; }
+    .weather__info .temperature__description {
+      margin-right: 0.3rem;
+      font-family: "Ubuntu", sans-serif;
+      font-size: 1rem;
+      color: #222020;
+      font-weight: 500; }
+  .weather__data {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%; }
+    .weather__data .sunrise,
+    .weather__data .sunset,
+    .weather__data .humidity,
+    .weather__data .pressure,
+    .weather__data .windSpeed,
+    .weather__data .cloudCover,
+    .weather__data .visibility {
+      min-width: 40px;
+      display: inline-block;
+      padding: 5px;
+      font-size: 0.8rem;
+      color: #333; }
+    .weather__data__left {
+      width: 40%;
+      height: 100%; }
+    .weather__data__right {
+      width: 50%;
+      height: 100%; }
+  .weather .airQuality {
+    height: 1.1rem;
+    line-height: 1.1rem;
+    width: 100%;
+    background: #ffc200;
+    border-radius: 10px;
+    font-size: 0.8rem; }
+    .weather .airQuality span {
+      display: inline-block;
+      color: black;
+      text-align: center;
+      min-width: 20%;
+      max-width: 50%; }
+

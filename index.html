@@ -12,16 +12,16 @@
   <header>
     <div class="container">
       <div class="logo"><img src="images/icons/sun.svg" /> TwojaPogoda.pl</div>
-      <button class="btn">Dodaj miasto <i class="material-icons">add</i></button>
+      <button class="btn" id="addCity">Dodaj miasto <i class="material-icons">add</i></button>
     </div>
   </header>
 
   <section id="app" class="container">
 
     <!-- szukajka -->
-    <div class="module">
+    <div class="module finder">
       <button class="btn btn--icon btn--close"><i class="material-icons">close</i></button>
-      <h2>Znajdź miasto</h2>
+      <h2>Znajdź miasto...</h2>
 
 
       <form novalidate autocomplete="off" class="find-city">
@@ -32,51 +32,70 @@
           <ul class="cityList">
           </ul>
         </div>
-
-
       </form>
     </div>
     <!-- koniec szukajki -->
 
 
     <div class="module item" style="display:none">
+      <div class="loading">
+        <div class="loaderItem">
+          <div class="loader"></div>
+          <div class="loadText">loading</div>
+        </div>
+
+      </div>
       <button class="btn btn--icon btn--close"><i class="material-icons">close</i></button>
 
-      <div class="infoTip"><i class="material-icons">my_location</i>auto location</div>
+      <div class="infoTip"><i class="material-icons">my_location</i>Twoja lokalizacja</div>
 
 
       <div class="weather">
-        <div class="weather__icon"><img src="images/icons/sun.svg" /></div>
+        <div class="weather__icon"><img src="images/icons/sun.svg" />
+          <div class="weather__icon__description">Zachmurzenie</div>
+        </div>
+
 
         <div class="weather__info">
           <div class="city">
             Wrocław <span class="btn btn--icon"><i class="material-icons">edit</i></span>
           </div>
+          <div class="timezone"></div>
           <div class="temperature">25.5&deg;C</div>
           <div class="temperature__feel">odczuwalna 15.5&deg;C</div>
         </div>
         <div class="weather__data">
           <div class="weather__data__left">
-            <span class="sunrise">sunrise : 7:30</span>
-            <span class="sunset">sunset : 16:00</span>
-            <span class="humidity">humidity : 70% </span>
+            <div class="sunrise"><span class="sunrise__icon"></span><span class="sunrise__value"></span></div>
+            <div class="sunset"><span class="sunset__icon">></span><span class="sunset__value"></span></div>
+            <div class="humidity"> <span class="humidity__icon"></span><span class="humidity__value"></span></div>
+            <div class="humidity"></div>
           </div>
+
           <div class="weather__data__right">
-            <span class="pressure">pressure: 1050hPa</span>
-            <span class="windSpeed">wind speed : 15km/h</span>
-            <span class="cloudCover"> cloud cover : 60%</span>
-            <span class="visibility">visibility : +10km</span>
+            <div class="pressure"><span class="pressure__icon"></span><span class="pressure__value"></div>
+            <div class="windSpeed"><span class="windSpeed__icon"></span><span class="windSpeed__value"></div>
+            <div class="cloudCover"><span class="cloudCover__icon"></span><span class="cloudCover__value"></div>
+            <div class="visibility"><span class="visibility__icon"></span><span class="visibility__value"></div>
           </div>
+
         </div>
         <div class="airQuality">
-          <span class="pm1"></span>
-          <span class="pm25"></span>
-          <span class="pm10"></span>
+          <div class="pm1">
+            <div class="pm1__icon"></div>
+            <div class="pm1__value"></div>
+          </div>
+          <div class="pm25">
+            <div class="pm25__icon"></div>
+            <div class="pm25__value"></div>
+          </div>
+          <div class="pm10">
+            <div class="pm10__icon"></div>
+            <div class="pm10__value"></div>
+          </div>
         </div>
 
-
       </div>
-    </div>
   </section>
 </body>
 
