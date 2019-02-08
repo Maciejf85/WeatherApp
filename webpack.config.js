@@ -82,7 +82,7 @@ module.exports = function (env) {
       options: {
         name: isProd ? "[name].[hash].[ext]" : "[name].[ext]",
         publicPath: "images",
-        outputPath: "images"
+        outputPath: "../images"
       }
     }
   };

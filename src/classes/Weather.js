@@ -9,7 +9,8 @@ class Weather {
             this.cityName = cityName,
             this.type = type,
             this.api = 'https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/',
-            this.key = 'ff1f8709e1512d132ab0aa87b7bd9258'
+            // this.api = 'https://api.darksky.net/forecast/',
+            this.key = 'f14d8b5ba08eb7828c4a50aa0869d736'
     }
 
     getWeatherDate(fn) {

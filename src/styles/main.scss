@@ -19,6 +19,9 @@ form {
       outline: none;
       color: #333;
       width: 90%;
+      @media (max-width:640px){
+        width: 80%;
+      }
 
       &::placeholder {
         font-family: "Lato", sans-serif;
@@ -50,6 +53,9 @@ form {
       border-top: transparent;
       font-style: italic;
       z-index: 3;
+      @media (max-width:640px){
+        width: 80%;
+      }
     }
 
     .cityList {
@@ -86,9 +92,16 @@ form {
   filter: $blur;
   // border: 1px solid red;
 
+
   &__icon {
     max-width: 120px;
     font-size: 12px;
+    @media (max-width: 640px){
+      max-width: 100%;
+      font-size: 1rem;
+      text-align: center;
+      margin:10px 0;
+  }
 
     img {
       width: 100px;
@@ -113,6 +126,10 @@ form {
       margin-right: 0.2rem;
       margin-bottom: 0.2rem;
       max-width: 13rem;
+      @media (max-width: 640px){
+        width: 100%;
+        text-align: center;
+    }
     }
 
     .timezone {
@@ -129,6 +146,10 @@ form {
       font-size: 3rem;
       color: #333030;
       font-weight: 500;
+      @media (max-width: 640px){
+        width: 100%;
+        text-align: center;
+    }
     }
 
     .temperature__feel {
@@ -154,7 +175,10 @@ form {
     justify-content: center;
     max-width: 50%;
     height: 160px;
-    // border: 1px solid black;
+    @media (max-width: 640px){
+      margin: 10px 0;
+      width: 100%;
+  }
 
     .sunrise,
     .sunset,
@@ -200,6 +224,12 @@ form {
     border-radius: 10px;
     font-size: 0.8rem;
     // overflow: hidden;
+    @media (max-width:640px) {
+      flex-direction: row;
+      margin-top: 30px;
+      justify-content: space-around;
+      width: 100%;
+      }
   }
 
   .pm1,
@@ -221,6 +251,5 @@ form {
       font-weight: bold;
       text-align: center;
     }
-
   }
 }

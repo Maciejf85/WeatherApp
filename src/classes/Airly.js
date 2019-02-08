@@ -4,6 +4,7 @@ class Airly {
           this.lat = lat,
                this.lng = lng,
                this.apikey = 'dQnvbbAkXgIFwVA3eGBQNCAQMQdiLWLk',
+               // this.apiURL = 'https://cors-anywhere.herokuapp.com/https://airapi.airly.eu/v2/measurements/nearest?',
                this.apiURL = 'https://airapi.airly.eu/v2/measurements/nearest?',
                this.maxDistance = 20
      }

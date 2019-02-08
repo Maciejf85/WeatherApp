@@ -40,7 +40,7 @@ submit.addEventListener("click", findCity);
 
 /**
  * przepisanie z pliku citys.json 
- * nazw miast i geolokacji
+ * nazw miast i geolokacji do tablicy autoComplete
  */
 Citys.forEach(x => {
      x.cities.forEach(item => {
@@ -72,8 +72,6 @@ search.addEventListener('keyup', function () {
                li.addEventListener('click', function () {
                     let weather = new Weather(z[i].lat, z[i].lon, 'Poland', z[i].name);
                     weather.getWeatherDate(display)
-
-                    console.log(this.innerText, z[i].lat, z[i].lon)
                     search.value = this.innerText;
                     cityList.innerHTML = null;
                     setTimeout(function () {
@@ -201,8 +199,7 @@ function getCurrentTime(currentId) {
 
      localTime.getTime(function (response) {
           let offset = parseInt(response.utc_offset);
-          console.log(response)
-          let time = new Date(response.unixtime * 1000)
+          let time = new Date(response.unixtime * 1000);
           let localHours = time.getUTCHours() + offset;
           let localMinutes = time.getMinutes();
           let localDay = weekDays[response.day_of_week - 1];
@@ -237,7 +234,6 @@ function calcUnix(time, offset, type) {
  * 
  *  Wyrenderowanie elementów z tablicy
  */
-
 
 function displayOnPage(currentNewElement) {
      console.time('render')
@@ -663,7 +659,6 @@ function displayOnPage(currentNewElement) {
           array.forEach((x, i) => {
                if (x.id == this.parentElement.dataset.id) {
                     array.splice(i, 1);
-                    console.log(array)
                }
           });
      });
@@ -675,13 +670,13 @@ function displayOnPage(currentNewElement) {
                $thisForecast.css('display', 'flex');
                $showButton.toggleClass('up');
                $($element).animate({
-                    height: '400px'
+                    height: '105%'
                })
           } else {
                $showButton.toggleClass('up');
                $thisForecast.hide(300);
                $($element).animate({
-                    height: '260px',
+                    height: '100%',
                })
           }
 
