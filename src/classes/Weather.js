@@ -18,6 +18,8 @@ class Weather {
             url: `${this.api}/${this.key}/${this.lat},${this.long}?lang=pl&units=si`
         }).done((response) => {
             fn(response, this.lat, this.long, this.country, this.cityName, this.type);
+        }).fail(function (error) {
+            console.log('Weather error')
         })
     }
 }

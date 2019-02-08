@@ -94,14 +94,13 @@ search.addEventListener('keyup', function () {
           let country = response.country;
           let mobile = response.mobile;
           let cityName = response.city;
-          let type = 'auto';
 
           if (mobile !== 'true') {
                let weather = new Weather(latitude, longtitude, country, cityName);
                weather.getWeatherDate(display)
           };
      });
-})();
+})
 
 /***
  *  funkcja wywołana na click search
@@ -167,6 +166,7 @@ function display(response, lat, long, country, cityName) {
      const name = cityName;
      let currentId = id++;
 
+
      createBaseItem(currentId); //wywołanie funkcji która buduje item
 
 
@@ -183,13 +183,13 @@ function display(response, lat, long, country, cityName) {
                     airLevel = response.current.indexes[0].level;
 
 
-                    array.push(new WeatherItem(currentId, icon, timeZone, day, currentTime, description, sunrise, sunset, temp, tempF, minTemp, maxTemp, humidity, windSpeed, cloudCover, visibility, pressure, name, country, pm1, pm25, pm10, airAdvice, airColor, airLevel, hourly));
+                    array.push(new WeatherItem(currentId, icon, timeZone, day, currentTime, description, sunrise, sunset, temp, tempF, minTemp, maxTemp, humidity, windSpeed, cloudCover, visibility, pressure, name, country, pm1, pm25, pm10, airAdvice, airColor, airLevel, hourly, offset));
                     getCurrentTime(currentId);
                }
           });
           return;
      }
-     array.push(new WeatherItem(currentId, icon, timeZone, day, currentTime, description, sunrise, sunset, temp, tempF, minTemp, maxTemp, humidity, windSpeed, cloudCover, visibility, pressure, name, country, pm1, pm25, pm10, airAdvice, airColor, airLevel, hourly));
+     array.push(new WeatherItem(currentId, icon, timeZone, day, currentTime, description, sunrise, sunset, temp, tempF, minTemp, maxTemp, humidity, windSpeed, cloudCover, visibility, pressure, name, country, pm1, pm25, pm10, airAdvice, airColor, airLevel, hourly, offset));
      getCurrentTime(currentId);
 };
 
@@ -200,13 +200,15 @@ function getCurrentTime(currentId) {
      localTime.getTime(function (response) {
           let offset = parseInt(response.utc_offset);
           let time = new Date(response.unixtime * 1000);
-          let localHours = time.getUTCHours() + offset;
+          let localT = time.getUTCHours() + offset;
+          let localHours = localT > 24 ? localT -= 24 : localT;
           let localMinutes = time.getMinutes();
           let localDay = weekDays[response.day_of_week - 1];
           localHours < 10 ? localHours = `0${localHours}` : `${localHours}`
           localMinutes < 10 ? localMinutes = `0${localMinutes}` : `${localMinutes}`
           thisItem[0].day = localDay;
           thisItem[0].time = `${localDay}  ${localHours}:${localMinutes}`;
+          thisItem[0].offset = offset;
           displayOnPage(thisItem[0]);
 
      });
@@ -218,9 +220,10 @@ function getCurrentTime(currentId) {
  */
 function calcUnix(time, offset, type) {
      if (type === 'time') {
-          time = time + (3600 * offset)
+
           let date = new Date(time * 1000);
-          let h = date.getUTCHours();
+          let localT = date.getUTCHours() + offset;
+          let h = localT > 24 ? localT -= 24 : localT;
           h < 10 ? h = `0${h}` : h;
           let m = date.getMinutes();
           m < 10 ? m = `0${m}` : m;
@@ -571,7 +574,7 @@ function displayOnPage(currentNewElement) {
           $pm1.appendTo($airQuality)
 
 
-          $pm1Icon.appendTo($pm25);
+          $pm25Icon.appendTo($pm25);
           $pm25Value.appendTo($pm25);
           $pm25.appendTo($airQuality)
 
@@ -610,19 +613,22 @@ function displayOnPage(currentNewElement) {
           let $img2 = $('<img>');
 
 
-          let $icon = $sourceData[0].hourly[3 + counter].icon;
-          let precip = $sourceData[0].hourly[3 + counter].precipProbability;
-          let temp = $sourceData[0].hourly[3 + counter].temperature;
-          let time = $sourceData[0].hourly[3 + counter].time;
+          let $icon = $sourceData[0].hourly[2 + counter].icon;
+          let precip = $sourceData[0].hourly[2 + counter].precipProbability;
+          let temp = $sourceData[0].hourly[2 + counter].temperature;
+          let time = $sourceData[0].hourly[2 + counter].time;
 
           let currentIcon = icons.filter(x => x.name == $icon);
 
           $img1.attr('src', currentIcon[0].url);
           $img2.attr('src', './images/icons2/water.svg');
 
+          let offset = $sourceData[0].offset;
           let h = new Date(time * 1000);
-          let hours = h.getHours();
-          hours < 10 ? hours = `0${hours}:00` : hours = `${hours}:00`;
+          let localH = h.getUTCHours() + offset;
+          let hours = localH >= 24 ? localH -= 24 : localH;
+          hours = localH < 0 ? localH += 24 : localH;
+          (hours < 10) ? hours = `0${hours}:00`: hours = `${hours}:00`;
 
           $div1.append($img1);
           $div1.appendTo($div0);

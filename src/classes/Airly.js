@@ -14,7 +14,7 @@ class Airly {
           }).done(function (response) {
                fn(response);
           }).fail(function (error) {
-               fn(error);
+               console.log(' airlyerror');
           })
      }
 }

@@ -11,7 +11,7 @@ class MyLocation {
           }).done((response) => {
                fn(response)
           }).fail(function (error) {
-               console.log(error)
+               console.log(' MyLocation error')
           })
      }
 }
