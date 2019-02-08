@@ -15,7 +15,7 @@ module.exports = function (env) {
   config.output = {
     filename: isDev ? "[name].js" : "[name].[chunkhash].js",
     path: path.resolve(__dirname, "build"),
-    publicPath: '/'
+    // publicPath: '/'
   };
 
   config.devtool = isProd ? false : "source-map";
@@ -136,6 +136,5 @@ module.exports = function (env) {
       historyApiFallback: true
     };
   }
-
   return config;
 };

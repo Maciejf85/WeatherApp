@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Material+Icons|Lato:300,400,700|Ubuntu:400,500,500i&subset=latin-ext");
 @import "css-reset-and-normalize";
 
+@import "./variables.scss";
 @import "./base.scss";
 @import "./header.scss";
 
@@ -59,7 +60,9 @@ form {
       }
 
       &>li:hover {
-        background: #ececec;
+        // background: #ececec;
+        background: $baseYellow;
+        opacity: 0.8;
         cursor: pointer;
       }
     }
@@ -80,7 +83,7 @@ form {
   align-items: center;
   justify-content: space-around;
   flex-wrap: wrap;
-  filter: blur(7px);
+  filter: $blur;
   // border: 1px solid red;
 
   &__icon {
@@ -88,8 +91,8 @@ form {
     font-size: 12px;
 
     img {
-      width: 130px;
-      // border: 1px solid green;
+      width: 100px;
+      margin-bottom: 15px;
     }
 
     &__icon__description {
@@ -99,7 +102,6 @@ form {
   }
 
   &__info {
-    margin-left: 0px;
     font-family: "Ubuntu", sans-serif;
     // border: 1px solid blue;
 
@@ -108,7 +110,9 @@ form {
       font-family: "Ubuntu", sans-serif;
       font-size: 1.8rem;
       color: #333;
+      margin-right: 0.2rem;
       margin-bottom: 0.2rem;
+      max-width: 13rem;
     }
 
     .timezone {
@@ -148,7 +152,7 @@ form {
     display: flex;
     align-items: baseline;
     justify-content: center;
-    width: 50%;
+    max-width: 50%;
     height: 160px;
     // border: 1px solid black;
 
@@ -161,7 +165,7 @@ form {
     .visibility {
       display: flex;
       align-items: center;
-      justify-content: space-around;
+      justify-content: left;
       max-width: 100%;
       min-height: 33px;
       padding: 5px;
@@ -174,6 +178,7 @@ form {
     &__left,
     &__right {
       height: 100%;
+      margin: 0 5px;
 
       img {
         width: 2rem;
@@ -189,6 +194,7 @@ form {
   .airQuality {
     display: flex;
     flex-direction: column;
+    align-items: center;
     height: 100%;
     max-height: 160px;
     border-radius: 10px;
@@ -201,7 +207,9 @@ form {
   .pm10 {
     padding: 10px 5px;
     border-radius: 10px;
-    margin: 5px 0;
+    margin: 8px 0;
+    text-align: center;
+    min-width: 45px;
 
     &__icon {
       color: black;

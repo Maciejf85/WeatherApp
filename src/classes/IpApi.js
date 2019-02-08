@@ -1,7 +1,7 @@
 import $ from 'jquery'
 class MyLocation {
      constructor() {
-          this.api = 'http://ip-api.com/json/?fields=mobile,country,city,lat,lon'
+          this.api = 'https://cors-anywhere.herokuapp.com/http://ip-api.com/json/?fields=mobile,country,city,lat,lon'
      }
 
      getMyLocation(fn) {

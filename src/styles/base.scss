@@ -25,7 +25,7 @@ h2 {
 
 .btn {
   border-radius: 8px;
-  background-color: #ffc200;
+  background-color: $baseYellow;
   color: #fff;
   border: none;
   align-items: center;
@@ -48,6 +48,7 @@ h2 {
     i {
       font-size: .8rem;
     }
+
   }
 
   &--close {
@@ -62,20 +63,25 @@ h2 {
     left: 15px;
     color: black
   }
+
+  &--more {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+  }
 }
 
 .infoTip {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #ffc200;
+  background: $baseYellow;
   width: 140px;
   height: 18px;
   border-radius: 10px;
   font-size: 0.8rem;
   text-align: center;
-  filter: blur(7px);
-
+  filter: $blur;
 
   i {
     font-size: 0.8rem;
@@ -92,8 +98,64 @@ h2 {
   border-radius: 8px;
   width: 100%;
 
-  &.item {
+
+  &--item {
     padding: 40px;
+    height: 260px;
+  }
+
+}
+
+.forecast {
+  margin-top: 50px;
+  height: 100px;
+  width: 80%;
+  min-width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 0.8rem;
+  text-align: center;
+  display: none;
+
+
+  .item {
+    height: 100%;
+    width: 10%;
+    // border: 1px solid red;
+
+    &--icon {
+      width: 100%;
+      height: 40%;
+      // border: 1px solid red;
+
+      img {
+        height: 90%;
+      }
+    }
+
+    &--precip {
+      margin-top: 5px;
+      height: 20%;
+      font-size: 0.8rem;
+
+      img {
+        height: 60%;
+      }
+    }
+
+    &--temperature {
+      width: 100%;
+      height: 25%;
+      margin-top: 5px;
+      font-size: 0.9rem;
+    }
+
+    &--hours {
+      width: 100%;
+      height: 15%;
+      // border: 1px solid red;
+    }
   }
 }
 
@@ -104,7 +166,7 @@ h2 {
   left: 0;
   width: 100%;
   height: 100%;
-  background: #ffffffee;
+  background: #ffffffc2;
   border-radius: 8px;
   z-index: 2;
 }
@@ -126,6 +188,10 @@ h2 {
 .finder {
   max-height: 114px;
   display: none;
+}
+
+.up {
+  animation: rotate 0.5s linear forwards;
 }
 
 .loader {
@@ -180,62 +246,30 @@ h2 {
 @keyframes after {
   0% {
     height: 0.5em;
-    box-shadow: 0.5em 1em #ffc200, -0.5em -1em #e9a920bf;
+    box-shadow: 0.5em 1em $baseYellow, -0.5em -1em #e9a920bf;
   }
 
   35% {
     height: 2.5em;
-    box-shadow: 0.5em 0 #ffc200, -0.5em 0 #e9a920bf;
+    box-shadow: 0.5em 0 $baseYellow, -0.5em 0 #e9a920bf;
   }
 
   70% {
     height: 0.5em;
-    box-shadow: 0.5em -1em #ffc200, -0.5em 1em #e9a920bf;
+    box-shadow: 0.5em -1em $baseYellow, -0.5em 1em #e9a920bf;
   }
 
   100% {
-    box-shadow: 0.5em 1em #ffc200, -0.5em -1em #e9a920bf;
+    box-shadow: 0.5em 1em $baseYellow, -0.5em -1em #e9a920bf;
   }
 }
 
-// @keyframes before {
-//   0% {
-//     width: 0.5em;
-//     box-shadow: 1em -0.5em rgba(225, 20, 98, 0.75), -1em 0.5em rgba(111, 202, 220, 0.75);
-//   }
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
 
-//   35% {
-//     width: 2.5em;
-//     box-shadow: 0 -0.5em rgba(225, 20, 98, 0.75), 0 0.5em rgba(111, 202, 220, 0.75);
-//   }
-
-//   70% {
-//     width: 0.5em;
-//     box-shadow: -1em -0.5em rgba(225, 20, 98, 0.75), 1em 0.5em rgba(111, 202, 220, 0.75);
-//   }
-
-//   100% {
-//     box-shadow: 1em -0.5em rgba(225, 20, 98, 0.75), -1em 0.5em rgba(111, 202, 220, 0.75);
-//   }
-// }
-
-// @keyframes after {
-//   0% {
-//     height: 0.5em;
-//     box-shadow: 0.5em 1em rgba(61, 184, 143, 0.75), -0.5em -1em #e9a920bf;
-//   }
-
-//   35% {
-//     height: 2.5em;
-//     box-shadow: 0.5em 0 rgba(61, 184, 143, 0.75), -0.5em 0 rgba(233, 169, 32, 0.75);
-//   }
-
-//   70% {
-//     height: 0.5em;
-//     box-shadow: 0.5em -1em rgba(61, 184, 143, 0.75), -0.5em 1em rgba(233, 169, 32, 0.75);
-//   }
-
-//   100% {
-//     box-shadow: 0.5em 1em rgba(61, 184, 143, 0.75), -0.5em -1em rgba(233, 169, 32, 0.75);
-//   }
-// }
+  100% {
+    transform: rotate(180deg)
+  }
+}
