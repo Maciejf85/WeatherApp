@@ -48,7 +48,16 @@ Citys.forEach(x => {
      })
 })
 
-
+function changeCity() {
+     let $thisCity = $(this).parent();
+     let $thisText = $thisCity.text()
+     let $input = $('<input>', {
+          type: 'text',
+          placeholder: $thisText
+     })
+     $thisCity.replaceWith($input);
+     console.log($thisCity)
+}
 /**
  * czyszczenie formularza
  */
@@ -300,6 +309,7 @@ function displayOnPage(currentNewElement) {
           class: 'material-icons',
           text: 'edit'
      });
+     $weatherInfoSpan.on('click', changeCity);
 
      let $weatherTimezone = $('<div>', {
           class: 'timezone',
@@ -384,7 +394,7 @@ function displayOnPage(currentNewElement) {
 
      let $freeInfo = $('<div>', {
           class: 'humidity',
-          text: 'undefined'
+          text: 'empty'
      });
 
      /**
@@ -731,5 +741,4 @@ function createBaseItem(currentId) {
      $loaderContainer.appendTo($loaderPage);
      $loaderPage.appendTo($newModule);
      $newModule.appendTo($container);
-
 }
