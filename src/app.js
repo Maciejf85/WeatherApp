@@ -48,16 +48,16 @@ Citys.forEach(x => {
      })
 })
 
-function changeCity() {
-     let $thisCity = $(this).parent();
-     let $thisText = $thisCity.text()
-     let $input = $('<input>', {
-          type: 'text',
-          placeholder: $thisText
-     })
-     $thisCity.replaceWith($input);
-     console.log($thisCity)
-}
+// function changeCity() {
+//      let $thisCity = $(this).parent();
+//      let $thisText = $thisCity.text()
+//      let $input = $('<input>', {
+//           type: 'text',
+//           placeholder: $thisText
+//      })
+//      $thisCity.replaceWith($input);
+//      console.log($thisCity)
+// }
 /**
  * czyszczenie formularza
  */
@@ -103,13 +103,13 @@ search.addEventListener('keyup', function () {
           let country = response.country;
           let mobile = response.mobile;
           let cityName = response.city;
-
+          let type = 'auto';
           if (mobile !== 'true') {
-               let weather = new Weather(latitude, longtitude, country, cityName);
+               let weather = new Weather(latitude, longtitude, country, cityName, type);
                weather.getWeatherDate(display)
           };
      });
-})
+})()
 
 /***
  *  funkcja wywołana na click search
@@ -137,14 +137,14 @@ function displayResult(response) {
      let country = response.hits[0].country
      let type = 'search';
 
-     let weather = new Weather(latitude, longtitude, country, cityName);
+     let weather = new Weather(latitude, longtitude, country, cityName, type);
      weather.getWeatherDate(display)
 }
 
 /**
  * Pobranie odpowiedzi z Weather.js
  */
-function display(response, lat, long, country, cityName) {
+function display(response, lat, long, country, cityName, type) {
 
      let currentDay = response.daily.data[0];
      let hourly = response.hourly.data;
@@ -174,6 +174,7 @@ function display(response, lat, long, country, cityName) {
      const pressure = currentDay.pressure;
      const name = cityName;
      let currentId = id++;
+     const thisType = type;
 
 
      createBaseItem(currentId); //wywołanie funkcji która buduje item
@@ -192,13 +193,13 @@ function display(response, lat, long, country, cityName) {
                     airLevel = response.current.indexes[0].level;
 
 
-                    array.push(new WeatherItem(currentId, icon, timeZone, day, currentTime, description, sunrise, sunset, temp, tempF, minTemp, maxTemp, humidity, windSpeed, cloudCover, visibility, pressure, name, country, pm1, pm25, pm10, airAdvice, airColor, airLevel, hourly, offset));
+                    array.push(new WeatherItem(currentId, icon, timeZone, day, currentTime, description, sunrise, sunset, temp, tempF, minTemp, maxTemp, humidity, windSpeed, cloudCover, visibility, pressure, name, country, pm1, pm25, pm10, airAdvice, airColor, airLevel, hourly, offset, thisType));
                     getCurrentTime(currentId);
                }
           });
           return;
      }
-     array.push(new WeatherItem(currentId, icon, timeZone, day, currentTime, description, sunrise, sunset, temp, tempF, minTemp, maxTemp, humidity, windSpeed, cloudCover, visibility, pressure, name, country, pm1, pm25, pm10, airAdvice, airColor, airLevel, hourly, offset));
+     array.push(new WeatherItem(currentId, icon, timeZone, day, currentTime, description, sunrise, sunset, temp, tempF, minTemp, maxTemp, humidity, windSpeed, cloudCover, visibility, pressure, name, country, pm1, pm25, pm10, airAdvice, airColor, airLevel, hourly, offset, thisType));
      getCurrentTime(currentId);
 };
 
@@ -271,8 +272,12 @@ function displayOnPage(currentNewElement) {
           class: 'material-icons',
           text: 'my_location'
      });
+
      $infoTim.appendTo($autoLocation);
      $autoLocation.appendTo($element);
+     if($sourceData[0].type === 'auto'){
+          $autoLocation.css('display', 'flex');
+     }
 
      let $weather = $('<div>', {
           class: 'weather'
@@ -302,14 +307,14 @@ function displayOnPage(currentNewElement) {
           class: 'city'
      });
      $weatherInfoCity.text(`${$sourceData[0].cityName} `);
-     let $weatherInfoSpan = $('<span>', {
-          class: 'btn btn--icon'
-     });
-     let $weatherInfoIcon = $('<i>', {
-          class: 'material-icons',
-          text: 'edit'
-     });
-     $weatherInfoSpan.on('click', changeCity);
+     // let $weatherInfoSpan = $('<span>', {
+     //      class: 'btn btn--icon'
+     // });
+     // let $weatherInfoIcon = $('<i>', {
+     //      class: 'material-icons',
+     //      text: 'edit'
+     // });
+     // $weatherInfoSpan.on('click', changeCity);
 
      let $weatherTimezone = $('<div>', {
           class: 'timezone',
@@ -389,7 +394,7 @@ function displayOnPage(currentNewElement) {
 
      let $humidityValue = $('<span>', {
           class: 'humidity__value',
-          text: `${$sourceData[0].humidity * 100}%`
+          text: `${Math.round($sourceData[0].humidity) * 100}%`
      });
 
      let $freeInfo = $('<div>', {
@@ -400,8 +405,8 @@ function displayOnPage(currentNewElement) {
      /**
       * weather info
       */
-     $weatherInfoIcon.appendTo($weatherInfoSpan);
-     $weatherInfoSpan.appendTo($weatherInfoCity);
+     // $weatherInfoIcon.appendTo($weatherInfoSpan);
+     // $weatherInfoSpan.appendTo($weatherInfoCity);
      $weatherInfoCity.appendTo($weatherInfo);
      $weatherTimezone.appendTo($weatherInfo);
      $weatherTemperature.appendTo($weatherInfo);
