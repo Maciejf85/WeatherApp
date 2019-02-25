@@ -72,11 +72,11 @@ h2 {
 }
 
 .infoTip {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   flex-direction: row-reverse;
-  background: $baseYellow;
+  background: $baseGreen;
   width: 140px;
   height: 18px;
   border-radius: 10px;
@@ -111,7 +111,7 @@ h2 {
   width: 100%;
 
   &--item {
-    padding: 40px;
+    padding: 20px 30px;
     min-height: 200px;
   }
 }
@@ -132,8 +132,6 @@ h2 {
   .item {
     height: 100%;
     width: 10%;
-
-
 
     // border: 1px solid red;
 
