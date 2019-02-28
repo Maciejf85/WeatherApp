@@ -111,10 +111,12 @@ form {
       margin-bottom: 15px;
     }
 
-    &__icon__description {
-      text-align: center;
-      // word-wrap: break-word;
-    }
+
+  }
+
+  &__icon__description {
+    text-align: center;
+    // word-wrap: break-word;
   }
 
   &__info {
@@ -221,6 +223,12 @@ form {
       justify-content: flex-start;
     }
 
+    .visibility {
+      @media (max-width: 640px) {
+        display: none;
+      }
+    }
+
     &__left,
     &__right {
       height: 100%;
@@ -239,7 +247,6 @@ form {
 
     &__left {
       text-align: right;
-
     }
   }
 
