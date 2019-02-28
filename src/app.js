@@ -109,7 +109,7 @@ search.addEventListener("keyup", function () {
     let mobile = response.mobile;
     let cityName = response.city;
     let type = "auto";
-    if (mobile !== "true") {
+    if (mobile === false) {
       let weather = new Weather(latitude, longtitude, country, cityName, type);
       weather.getWeatherDate(display);
     }
@@ -464,7 +464,7 @@ function displayOnPage(currentNewElement) {
 
   let $freeInfo = $("<div>", {
     class: "humidity",
-    text: "empty"
+    text: ""
   });
 
   /**
@@ -564,16 +564,16 @@ function displayOnPage(currentNewElement) {
    * visibility
    */
   let $weatherVisibility = $("<div>", {
-    class: "windSpeed"
+    class: "visibility"
   });
   let $visibilityIcon = $("<span>", {
-    class: "windSpeed__icon"
+    class: "visibility__icon"
   });
   let visibility =
     $sourceData[0].visibility > 10 ? "+10" : $sourceData[0].visibility;
 
   let $visibilityValue = $("<span>", {
-    class: "windSpeed__value",
+    class: "visibility__value",
     text: `visibility: ${visibility} km`
   });
 
@@ -703,7 +703,6 @@ function displayOnPage(currentNewElement) {
     let localH = h.getUTCHours() + offset;
     let hours = localH >= 24 ? (localH -= 24) : localH;
     hours = localH < 0 ? (localH += 24) : localH;
-
     hours < 10 ? (hours = `0${hours}:00`) : (hours = `${hours}:00`);
 
 
