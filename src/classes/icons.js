@@ -1,42 +1,42 @@
 const iconArray = [{
           name: 'clear-day',
-          url: './images/icons2/sun.svg'
+          url: './images/icon/clear-day.png'
      },
      {
           name: 'clear-night',
-          url: 'images/icons2/night.svg'
+          url: 'images/icon/clear-night.png'
      },
      {
           name: 'rain',
-          url: 'images/icons2/rain-3.svg'
+          url: 'images/icon/rain.png'
      },
      {
           name: 'snow',
-          url: 'images/icons2/snow-3.svg'
+          url: 'images/icon/snow.png'
      },
      {
           name: 'sleet',
-          url: 'images/icons2/hail-2.svg'
+          url: 'images/icon/sleet.png'
      },
      {
           name: 'wind',
-          url: 'images/icons2/wind.svg'
+          url: 'images/icon/wind.png'
      },
      {
           name: 'fog',
-          url: 'images/icons2/fog.svg'
+          url: 'images/icon/fog.png'
      },
      {
           name: 'cloudy',
-          url: 'images/icons2/cloudy-2.svg'
+          url: 'images/icon/cloudy.png'
      },
      {
           name: 'partly-cloudy-day',
-          url: 'images/icons2/cloudy.svg'
+          url: 'images/icon/partly-cloudy-day.png'
      },
      {
           name: 'partly-cloudy-night',
-          url: 'images/icons2/cloudy-1.svg'
+          url: 'images/icon/partly-cloudy-night.png'
      }
 ]
 
