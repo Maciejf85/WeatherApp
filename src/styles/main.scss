@@ -89,39 +89,56 @@ form {
 .weather {
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  justify-content: center;
   filter: $blur;
+
   // border: 1px solid red;
+  @media (max-width: 1024px) {
+    flex-wrap: wrap;
+  }
 
 
   &__icon {
     max-width: 120px;
     font-size: 12px;
 
-    @media (max-width: 640px) {
-      max-width: 100%;
+    @media (max-width: 640px) and (orientation: portrait) {
+      max-width: 72%;
       font-size: 1rem;
       text-align: center;
-      margin: 10px 0;
+      margin: 15px 0;
     }
+
+    // @media (max-width: 640px) and (orientation: landscape) {
+    //   max-width: 41%;
+    //   font-size: 1rem;
+    //   text-align: center;
+    //   margin: 10px 0;
+    //   color: red;
+    // }
 
     img {
       width: 100px;
       margin-bottom: 15px;
     }
-
-
   }
 
   &__icon__description {
     text-align: center;
-    // word-wrap: break-word;
+
+    @media (max-width: 640px) {
+      width: 100%;
+      text-align: center;
+    }
   }
 
   &__info {
     font-family: "Ubuntu", sans-serif;
-    // border: 1px solid blue;
+    text-align: center;
+
+    @media (max-width: 640px) {
+      width: 57%;
+    }
 
 
     .city {
@@ -135,6 +152,8 @@ form {
       @media (max-width: 640px) {
         width: 100%;
         text-align: center;
+        font-size: 2.3rem;
+        letter-spacing: 1px;
 
         span {
           display: none;
@@ -151,6 +170,7 @@ form {
       margin-bottom: 0.3rem;
 
       @media (max-width: 640px) {
+        margin: 5px 0;
         width: 100%;
         text-align: center;
       }
@@ -189,13 +209,12 @@ form {
     display: flex;
     align-items: baseline;
     justify-content: center;
-    min-width: 40%;
+    min-width: 35%;
     max-width: 80%;
     height: 100%;
 
     @media (max-width: 640px) {
       margin: 10px 0;
-      // border: 1px solid red;
       min-width: 80%;
     }
 

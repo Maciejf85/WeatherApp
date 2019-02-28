@@ -282,13 +282,12 @@ function getCurrentTime(currentId) {
     let localT = time.getUTCHours() + offset;
 
     let localHours;
-    if (localT > 24) {
+    if (localT >= 24) {
       localHours = localT -= 24
     } else if (localT < 0) {
       localHours = localT += 24
-    } else {
-      localHours = localT
     }
+    localHours = localT;
     let localMinutes = time.getMinutes();
     let localDay = weekDays[response.day_of_week - 1];
     localHours < 10 ? (localHours = `0${localHours}`) : `${localHours}`;
@@ -308,10 +307,9 @@ function calcUnix(time, offset, type) {
     let date = new Date(time * 1000);
     let localT = date.getUTCHours() + offset;
     let h
-    if (localT > 24) localT -= 24
+    if (localT >= 24) localT -= 24
     else if (localT < 0) localT += 24
-    else h = localT;
-
+    h = localT;
     h < 10 ? (h = `0${h}`) : h;
     let m = date.getMinutes();
     m < 10 ? (m = `0${m}`) : m;
