@@ -5,16 +5,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+    crossorigin="anonymous">
   <title>Weather App</title>
 </head>
 
 <body>
   <header>
     <div class="container">
-      <div class="logo"><img src="images/icon/sun2.png" /> TwojaPogoda.pl</div>
+      <div class="logo"><img src="images/icon/sun2.png" /> WeatherApp</div>
+
       <button class="btn" id="addCity">Dodaj miasto <i class="material-icons">add</i></button>
     </div>
   </header>
+  <section class='container'>
+    <div class='skin'>
+      <i class="fas fa-sun"></i><input type="checkbox" class='checkbox'><i class="fas fa-moon"></i>
+  </section>
+  </div>
 
   <section id="app" class="container">
 
@@ -25,7 +33,7 @@
 
 
       <form novalidate autocomplete="off" class="find-city">
-        <input type="text" name="search" id="search" placeholder="miasto..." focus />
+        <input type="text" name="search" id="search" placeholder="miasto..." />
 
         <button type="submit"><i class="material-icons">search</i></button>
         <div class="autocomplete">

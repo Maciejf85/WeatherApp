@@ -89,61 +89,50 @@ form {
 .weather {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
   filter: $blur;
-
   // border: 1px solid red;
-  @media (max-width: 1024px) {
-    flex-wrap: wrap;
-  }
 
 
   &__icon {
     max-width: 120px;
     font-size: 12px;
 
-    @media (max-width: 640px) and (orientation: portrait) {
-      max-width: 72%;
+    @media (max-width: 640px) {
+      width: 100%;
+      max-width: 100%;
       font-size: 1rem;
       text-align: center;
-      margin: 15px 0;
+      margin: 10px 0;
     }
 
-    // @media (max-width: 640px) and (orientation: landscape) {
-    //   max-width: 41%;
-    //   font-size: 1rem;
-    //   text-align: center;
-    //   margin: 10px 0;
-    //   color: red;
-    // }
+    @media (max-width: 640px) and (orientation: landscape) {
+      width: 75%;
+      text-align: center;
+    }
 
     img {
       width: 100px;
       margin-bottom: 15px;
     }
+
+
   }
 
   &__icon__description {
     text-align: center;
-
-    @media (max-width: 640px) {
-      width: 100%;
-      text-align: center;
-    }
+    // word-wrap: break-word;
   }
 
   &__info {
     font-family: "Ubuntu", sans-serif;
-    text-align: center;
-
-    @media (max-width: 640px) {
-      width: 57%;
-    }
+    // border: 1px solid blue;
 
 
     .city {
       font-family: "Ubuntu", sans-serif;
-      font-size: 1.8rem;
+      font-size: 2.3rem;
       color: #333;
       margin-right: 0.2rem;
       margin-bottom: 0.2rem;
@@ -152,8 +141,6 @@ form {
       @media (max-width: 640px) {
         width: 100%;
         text-align: center;
-        font-size: 2.3rem;
-        letter-spacing: 1px;
 
         span {
           display: none;
@@ -170,9 +157,9 @@ form {
       margin-bottom: 0.3rem;
 
       @media (max-width: 640px) {
-        margin: 5px 0;
         width: 100%;
         text-align: center;
+        margin-bottom: 0.5rem;
       }
     }
 
@@ -209,12 +196,13 @@ form {
     display: flex;
     align-items: baseline;
     justify-content: center;
-    min-width: 35%;
+    min-width: 40%;
     max-width: 80%;
     height: 100%;
 
     @media (max-width: 640px) {
       margin: 10px 0;
+      // border: 1px solid red;
       min-width: 80%;
     }
 
@@ -294,6 +282,7 @@ form {
     margin: 8px 0;
     text-align: center;
     min-width: 45px;
+    color: black;
 
     &__icon {
       color: black;
@@ -302,7 +291,7 @@ form {
     }
 
     &__value {
-      font-weight: bold;
+      font-weight: 900;
       text-align: center;
     }
   }

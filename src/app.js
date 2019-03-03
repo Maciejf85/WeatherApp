@@ -13,6 +13,7 @@ import "./styles/main.scss";
 import icons from "./classes/icons";
 import weekDays from "./classes/WeekDays";
 
+
 let search = document.getElementById("search");
 let submit = document.querySelector('button[type="submit"]');
 let cityList = document.querySelector("ul.cityList");
@@ -20,9 +21,46 @@ let $btnAddCity = $("#addCity");
 let $finder = $(".module.finder");
 let $finderHide = $finder.find("button.btn");
 let id = 0;
+const $checkbox = $('.checkbox');
+let darker
+let dark
+
+
+
+function changeSkin(status) {
+  if ($(this).prop('checked') || status == 'checked') {
+    darker = 'darker';
+    dark = 'dark'
+    $('body').addClass('dark');
+    $('header').addClass('darker');
+    $('div.module.finder').addClass('darker');
+    $('.autocomplete').addClass('dark');
+    $('.module.module--item').addClass('darker');
+    $('.weather').addClass('darker');
+    $('.infoTip').addClass('dark')
+    localStorage.setItem('setSkin', 'night');
+
+  } else {
+    $('body').removeClass('dark');
+    $('header').removeClass('darker');
+    $('div.module.finder').removeClass('darker');
+    $('.autocomplete').removeClass('dark');
+    $('.module.module--item').removeClass('darker');
+    $('.weather').removeClass('darker');
+    $('.infoTip').removeClass('dark');
+    darker = null;
+    dark = null;
+    localStorage.setItem('setSkin', 'day');
+
+  }
+}
+
+$checkbox.on('change', changeSkin);
+
 
 $btnAddCity.on("click", function () {
   $finder.show(300);
+  // $finder.find('#search').focus();
 });
 
 const hideFinder = () => {
@@ -164,7 +202,7 @@ function display(response, lat, long, country, cityName, type) {
   const offset = response.offset;
   const icon = currentDay.icon;
   const timeZone = response.timezone;
-  const description = currentDay.summary;
+  const description = response.currently.summary;
   const sunrise = calcUnix(currentDay.sunriseTime, offset, "time");
   const sunset = calcUnix(currentDay.sunsetTime, offset, "time");
   const temp = response.currently.temperature;
@@ -289,7 +327,7 @@ function getCurrentTime(currentId) {
     }
     localHours = localT;
     let localMinutes = time.getMinutes();
-    let localDay = weekDays[response.day_of_week - 1];
+    let localDay = weekDays[response.day_of_week];
     localHours < 10 ? (localHours = `0${localHours}`) : `${localHours}`;
     localMinutes < 10 ? (localMinutes = `0${localMinutes}`) : `${localMinutes}`;
     thisItem[0].day = localDay;
@@ -340,7 +378,7 @@ function displayOnPage(currentNewElement) {
   $btnClose.appendTo($element);
 
   let $autoLocation = $("<div>", {
-    class: "infoTip",
+    class: "infoTip " + dark,
     text: "Twoja lokalizacja"
   });
   let $infoTim = $("<i>", {
@@ -354,8 +392,9 @@ function displayOnPage(currentNewElement) {
     $autoLocation.css("display", "flex");
   }
 
+
   let $weather = $("<div>", {
-    class: "weather"
+    class: "weather " + darker
   });
   let $weatherIcon = $("<div>", {
     class: "weather__icon"
@@ -789,7 +828,7 @@ function displayOnPage(currentNewElement) {
 function createBaseItem(currentId) {
   let $container = $("#app");
   let $newModule = $("<div>", {
-    class: "module module--item"
+    class: "module module--item " + darker
   });
   $newModule.attr("data-id", currentId);
   let $loaderPage = $("<div>", {
@@ -810,4 +849,9 @@ function createBaseItem(currentId) {
   $loaderContainer.appendTo($loaderPage);
   $loaderPage.appendTo($newModule);
   $newModule.appendTo($container);
+}
+if (localStorage.getItem('setSkin') == 'night') {
+  $checkbox.prop('checked', true);
+  changeSkin('checked')
+  console.log('changing skin')
 }
