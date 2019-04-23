@@ -1,3 +1,3 @@
 # Weather App
 
-![image](http://maciejf.pl/img/weatherApp/weatherApp.jpg)
+<img src="http://maciejf.pl/img/weatherApp/weatherApp.jpg" width="100%" />
