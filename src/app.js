@@ -853,5 +853,4 @@ function createBaseItem(currentId) {
 if (localStorage.getItem('setSkin') == 'night') {
   $checkbox.prop('checked', true);
   changeSkin('checked')
-  console.log('changing skin')
 }

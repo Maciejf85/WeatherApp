@@ -1,0 +1,6 @@
+//Rewrite to www
+Options +FollowSymLinks
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^maciejf.pl[nc]
+RewriteRule ^(.*)$ http://www.maciejf.pl/$1 [r=301,nc]
+ 
