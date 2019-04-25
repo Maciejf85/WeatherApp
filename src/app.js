@@ -13,7 +13,6 @@ import "./styles/main.scss";
 import icons from "./classes/icons";
 import weekDays from "./classes/WeekDays";
 
-
 let search = document.getElementById("search");
 let submit = document.querySelector('button[type="submit"]');
 let cityList = document.querySelector("ul.cityList");
@@ -21,51 +20,46 @@ let $btnAddCity = $("#addCity");
 let $finder = $(".module.finder");
 let $finderHide = $finder.find("button.btn");
 let id = 0;
-const $checkbox = $('.checkbox');
-let darker
-let dark
-
-
+const $checkbox = $(".checkbox");
+let darker;
+let dark;
 
 function changeSkin(status) {
-  if ($(this).prop('checked') || status == 'checked') {
-    darker = 'darker';
-    dark = 'dark'
-    $('body').addClass('dark');
-    $('header').addClass('darker');
-    $('div.module.finder').addClass('darker');
-    $('.autocomplete').addClass('dark');
-    $('.module.module--item').addClass('darker');
-    $('.weather').addClass('darker');
-    $('.infoTip').addClass('dark')
-    localStorage.setItem('setSkin', 'night');
-
+  if ($(this).prop("checked") || status == "checked") {
+    darker = "darker";
+    dark = "dark";
+    $("body").addClass("dark");
+    $("header").addClass("darker");
+    $("div.module.finder").addClass("darker");
+    $(".autocomplete").addClass("dark");
+    $(".module.module--item").addClass("darker");
+    $(".weather").addClass("darker");
+    $(".infoTip").addClass("dark");
+    localStorage.setItem("setSkin", "night");
   } else {
-    $('body').removeClass('dark');
-    $('header').removeClass('darker');
-    $('div.module.finder').removeClass('darker');
-    $('.autocomplete').removeClass('dark');
-    $('.module.module--item').removeClass('darker');
-    $('.weather').removeClass('darker');
-    $('.infoTip').removeClass('dark');
+    $("body").removeClass("dark");
+    $("header").removeClass("darker");
+    $("div.module.finder").removeClass("darker");
+    $(".autocomplete").removeClass("dark");
+    $(".module.module--item").removeClass("darker");
+    $(".weather").removeClass("darker");
+    $(".infoTip").removeClass("dark");
     darker = null;
     dark = null;
-    localStorage.setItem('setSkin', 'day');
-
+    localStorage.setItem("setSkin", "day");
   }
 }
 
-$checkbox.on('change', changeSkin);
+$checkbox.on("change", changeSkin);
 
-
-$btnAddCity.on("click", function () {
+$btnAddCity.on("click", function() {
   $finder.show(300);
   // $finder.find('#search').focus();
 });
 
 const hideFinder = () => {
   $finder.fadeOut(300);
-}
+};
 
 $finderHide.on("click", hideFinder);
 
@@ -103,13 +97,13 @@ Citys.forEach(x => {
 /**
  * czyszczenie formularza
  */
-search.addEventListener("focus", function () {
+search.addEventListener("focus", function() {
   cityList.innerHTML = null;
 });
 /**
  * odpalenie autocomplete
  */
-search.addEventListener("keyup", function () {
+search.addEventListener("keyup", function() {
   cityList.innerHTML = null;
   let z = autoComplete.filter(x =>
     x.name.toLowerCase().includes(this.value.toLowerCase())
@@ -121,12 +115,12 @@ search.addEventListener("keyup", function () {
       li.innerHTML = z[i].name + ", " + z[i].region_name;
       // li.addEventListener('mouseover', function () {
       // })
-      li.addEventListener("click", function () {
+      li.addEventListener("click", function() {
         let weather = new Weather(z[i].lat, z[i].lon, "Poland", z[i].name);
         weather.getWeatherDate(display);
         search.value = this.innerText;
         cityList.innerHTML = null;
-        setTimeout(function () {
+        setTimeout(function() {
           search.value = null;
         }, 1000);
       });
@@ -140,7 +134,7 @@ search.addEventListener("keyup", function () {
  */
 (function myLocation() {
   let location = new MyLocation();
-  location.getMyLocation(function (response) {
+  location.getMyLocation(function(response) {
     let latitude = response.lat;
     let longtitude = response.lon;
     let country = response.country;
@@ -187,7 +181,6 @@ function displayResult(response) {
  * Pobranie odpowiedzi z Weather.js
  */
 function display(response, lat, long, country, cityName, type) {
-
   let currentDay = response.daily.data[0];
   let hourly = response.hourly.data;
 
@@ -223,17 +216,17 @@ function display(response, lat, long, country, cityName, type) {
 
   if (country === "Poland") {
     let air = new Airly(lat, long);
-    air.getAirlyData(function (response) {
+    air.getAirlyData(function(response) {
       if (response.status !== 404) {
-        response.current.values[0] !== undefined ?
-          (pm1 = response.current.values[0].value) :
-          null;
-        response.current.values[1] !== undefined ?
-          (pm25 = response.current.values[1].value) :
-          null;
-        response.current.values[2] !== undefined ?
-          (pm10 = response.current.values[2].value) :
-          null;
+        response.current.values[0] !== undefined
+          ? (pm1 = response.current.values[0].value)
+          : null;
+        response.current.values[1] !== undefined
+          ? (pm25 = response.current.values[1].value)
+          : null;
+        response.current.values[2] !== undefined
+          ? (pm10 = response.current.values[2].value)
+          : null;
         airAdvice = response.current.indexes[0].advice;
         airColor = response.current.indexes[0].color;
         airLevel = response.current.indexes[0].level;
@@ -314,16 +307,16 @@ function getCurrentTime(currentId) {
   let thisItem = array.filter(x => x.id == currentId);
   let localTime = new WorldTime(thisItem[0].timezone);
 
-  localTime.getTime(function (response) {
+  localTime.getTime(function(response) {
     let offset = parseInt(response.utc_offset);
     let time = new Date(response.unixtime * 1000);
     let localT = time.getUTCHours() + offset;
 
     let localHours;
     if (localT >= 24) {
-      localHours = localT -= 24
+      localHours = localT -= 24;
     } else if (localT < 0) {
-      localHours = localT += 24
+      localHours = localT += 24;
     }
     localHours = localT;
     let localMinutes = time.getMinutes();
@@ -344,9 +337,9 @@ function calcUnix(time, offset, type) {
   if (type === "time") {
     let date = new Date(time * 1000);
     let localT = date.getUTCHours() + offset;
-    let h
-    if (localT >= 24) localT -= 24
-    else if (localT < 0) localT += 24
+    let h;
+    if (localT >= 24) localT -= 24;
+    else if (localT < 0) localT += 24;
     h = localT;
     h < 10 ? (h = `0${h}`) : h;
     let m = date.getMinutes();
@@ -391,7 +384,6 @@ function displayOnPage(currentNewElement) {
   if ($sourceData[0].type === "auto") {
     $autoLocation.css("display", "flex");
   }
-
 
   let $weather = $("<div>", {
     class: "weather " + darker
@@ -566,7 +558,7 @@ function displayOnPage(currentNewElement) {
 
   let $pressureValue = $("<span>", {
     class: "sunrise__value",
-    text: `${$sourceData[0].pressure} hPa`
+    text: `${Math.round($sourceData[0].pressure)} hPa`
   });
 
   /**
@@ -750,7 +742,6 @@ function displayOnPage(currentNewElement) {
     hours = localH < 0 ? (localH += 24) : localH;
     hours < 10 ? (hours = `0${hours}:00`) : (hours = `${hours}:00`);
 
-
     $div1.append($img1);
     $div1.appendTo($div0);
     $div2.append($img2);
@@ -776,10 +767,10 @@ function displayOnPage(currentNewElement) {
   $showButtonIcon.appendTo($showButton);
   $showButton.appendTo($element);
 
-  $btnClose.on("click", function () {
+  $btnClose.on("click", function() {
     $(this)
       .parent()
-      .fadeOut(500, function () {
+      .fadeOut(500, function() {
         $(this).remove();
       });
     array.forEach((x, i) => {
@@ -789,7 +780,7 @@ function displayOnPage(currentNewElement) {
     });
   });
 
-  $showButton.on("click", function () {
+  $showButton.on("click", function() {
     let $thisForecast = $showButton.parent().find(".forecast");
     if ($thisForecast.css("display") == "none") {
       $thisForecast.css("display", "flex");
@@ -814,7 +805,7 @@ function displayOnPage(currentNewElement) {
   let $item = $(".loading");
 
   $item.fadeOut(1000);
-  setTimeout(function () {
+  setTimeout(function() {
     $weather.css("filter", "none");
     $autoLocation.css("filter", "none");
   }, 500);
@@ -850,7 +841,7 @@ function createBaseItem(currentId) {
   $loaderPage.appendTo($newModule);
   $newModule.appendTo($container);
 }
-if (localStorage.getItem('setSkin') == 'night') {
-  $checkbox.prop('checked', true);
-  changeSkin('checked')
+if (localStorage.getItem("setSkin") == "night") {
+  $checkbox.prop("checked", true);
+  changeSkin("checked");
 }
