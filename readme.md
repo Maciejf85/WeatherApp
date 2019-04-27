@@ -54,3 +54,11 @@ Aplikacja napisana w JavaScript z pomocą biblioteki jQuery.
 3. Jeśli dane pobierane są dla Polski, z `Airly` zostają pobrane informacje o jakości powietrza i stężeniu pyłków PM1, PM2,5 i PM10.
 
 4. Na koniec z `World Time` pobierany jest aktualny dzień tygodnia i lokalna godzina.
+
+<br><br>
+
+### Prezentacja
+
+Layout strony można przełączać między dziennym a nocnym.
+
+<img src="http://maciejf.pl/img/weatherApp/gif/black-white.gif"  />
