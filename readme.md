@@ -31,17 +31,17 @@ Aplikacja podaje takie informacje jak:
 
 <img src="http://maciejf.pl/img/weatherApp/API1.png"  />
 
-## Opis i prezentacja
+## Opis 
 
-Responsywna aplikacja napisana w JavaScript z pomocą biblioteki jQuery i preprocesora SASS.
+Responsywna aplikacja napisana w JavaScript i jQuery.
 
 ### _Autolokalizacja_
 
-1. W pierwszej kolejności aplikacja wysyła zapytanie do `ip-api`, określając po numerze ip, rodzaj urządzenia z którego wysłano zapytanie, współrzędne geograficzne, państwo i miasto. Jeśli zapytanie zostało wysłano z internetu mobilnego dalsze kroki są pomijane.
+1. W pierwszej kolejności aplikacja wysyła zapytanie do `ip-api`, określając po numerze ip, rodzaj sieci z której wysłano zapytanie, współrzędne geograficzne, państwo i miasto. Jeśli zapytanie zostało wysłano z internetu mobilnego dalsze kroki są pomijane.
 
 2. Następnie do `Dark Sky API` wysyłane są współrzędne geograficzne. Zwrotnie pobierane są wszystkie dane dotyczące pogody.
 
-3. Jeśli dane pobierane są dla Polski, z `Airly` zostają pobrane informacje o jakości powietrza i stężeniu pyłków PM1, PM2,5 i PM10.
+3. Jeśli pogoda dotyczy Polski, z `Airly` zostają pobrane informacje o jakości powietrza i stężeniu pyłków PM1, PM2,5 i PM10.
 
 4. Na koniec z `World Time` pobierany jest aktualny dzień tygodnia i lokalna godzina.
 
@@ -51,13 +51,13 @@ Responsywna aplikacja napisana w JavaScript z pomocą biblioteki jQuery i prepro
 
 2. Nazwa miasta wysyłana jest do `Graphhopper`. Serwis zwraca nazwę kraju i współrzędne geograficzne.
 
-3. Jeśli dane pobierane są dla Polski, z `Airly` zostają pobrane informacje o jakości powietrza i stężeniu pyłków PM1, PM2,5 i PM10.
+3. Jeśli dane dotyczą Polski, z `Airly` zostają pobrane informacje o jakości powietrza i stężeniu pyłków PM1, PM2,5 i PM10.
 
 4. Na koniec z `World Time` pobierany jest aktualny dzień tygodnia i lokalna godzina.
 
 <br><br>
 
-### Prezentacja
+## Prezentacja
 
 **_Dzień/Noc_**
 
