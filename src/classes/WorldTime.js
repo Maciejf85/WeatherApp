@@ -12,6 +12,7 @@ class WorldTime {
       url: `${this.apiUrl}${this.timeZone}`
     })
       .done(response => {
+        console.log("worldtime", response);
         fn(response);
       })
       .fail(error => {

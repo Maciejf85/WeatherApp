@@ -18,6 +18,8 @@ class Weather {
       url: `${this.api}/${this.key}/${this.lat},${this.long}?lang=pl&units=si`
     })
       .done(response => {
+        console.log("Weather", response);
+
         fn(
           response,
           this.lat,
