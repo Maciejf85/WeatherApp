@@ -33,7 +33,7 @@ Aplikacja podaje takie informacje jak:
 
 ## Opis i prezentacja
 
-Aplikacja napisana w JavaScript z pomocą biblioteki jQuery.
+Responsywna aplikacja napisana w JavaScript z pomocą biblioteki jQuery i preprocesora SASS.
 
 ### _Autolokalizacja_
 
@@ -72,3 +72,7 @@ Aplikacja napisana w JavaScript z pomocą biblioteki jQuery.
 **_Autocomplete_**
 
 <img src="http://maciejf.pl/img/weatherApp/gif/autocomplete.gif"  />
+
+## RWD
+
+<img src="http://maciejf.pl/img/weatherApp/rwd.jpg"  />
