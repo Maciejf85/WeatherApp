@@ -59,6 +59,14 @@ Aplikacja napisana w JavaScript z pomocą biblioteki jQuery.
 
 ### Prezentacja
 
-Layout strony można przełączać między dziennym a nocnym.
+`Dzień/Noc`
 
 <img src="http://maciejf.pl/img/weatherApp/gif/black-white.gif"  />
+<br><br>
+`Autolokalizacja`
+
+<img src="http://maciejf.pl/img/weatherApp/gif/autolocation.gif"  />
+<br><br>
+
+'Autocomplete`
+<img src="http://maciejf.pl/img/weatherApp/gif/autocomplete.gif"  />
