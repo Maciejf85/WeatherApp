@@ -35,7 +35,7 @@ Aplikacja podaje takie informacje jak:
 
 Aplikacja napisana w JavaScript z pomocą biblioteki jQuery.
 
-### _Autolokacja_
+### _Autolokalizacja_
 
 1. W pierwszej kolejności aplikacja wysyła zapytanie do `ip-api`, określając po numerze ip, rodzaj urządzenia z którego wysłano zapytanie, współrzędne geograficzne, państwo i miasto. Jeśli zapytanie zostało wysłano z internetu mobilnego dalsze kroki są pomijane.
 
@@ -59,14 +59,16 @@ Aplikacja napisana w JavaScript z pomocą biblioteki jQuery.
 
 ### Prezentacja
 
-`Dzień/Noc`
+**_Dzień/Noc_**
 
 <img src="http://maciejf.pl/img/weatherApp/gif/black-white.gif"  />
-<br><br>
-`Autolokalizacja`
+<br>
+
+**_Autolokalizacja_**
 
 <img src="http://maciejf.pl/img/weatherApp/gif/autolocation.gif"  />
-<br><br>
+<br>
 
-'Autocomplete`
+**_Autocomplete_**
+
 <img src="http://maciejf.pl/img/weatherApp/gif/autocomplete.gif"  />
