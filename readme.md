@@ -73,6 +73,6 @@ Responsywna aplikacja napisana w JavaScript i jQuery.
 
 <img src="http://maciejf.pl/img/weatherApp/gif/autocomplete.gif"  />
 
-## RWD
+## Responsive web design
 
 <img src="http://maciejf.pl/img/weatherApp/rwd.jpg"  />
