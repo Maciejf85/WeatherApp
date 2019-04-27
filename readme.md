@@ -49,7 +49,7 @@ Responsywna aplikacja napisana w JavaScript z pomocą biblioteki jQuery i prepro
 
 1. Dla Polski zaimplementowany jest `autocomplete` który podpowiada nam nazwy miast.
 
-2. Nazwa miasta wysyłana jest do `Geolocation`. Serwis zwraca nazwę kraju i współrzędne geograficzne.
+2. Nazwa miasta wysyłana jest do `Graphhopper`. Serwis zwraca nazwę kraju i współrzędne geograficzne.
 
 3. Jeśli dane pobierane są dla Polski, z `Airly` zostają pobrane informacje o jakości powietrza i stężeniu pyłków PM1, PM2,5 i PM10.
 
