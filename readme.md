@@ -78,8 +78,3 @@ Responsywna aplikacja napisana w JavaScript i jQuery.
 ## Responsive web design
 
 <img src="http://maciejf.pl/img/weatherApp/rwd.jpg"  />
-
-
-### Na koniec
-
-Zapraszam do kliknięcia w link `Demo aplikacji` i sprawdzeniu jak ona działa.
