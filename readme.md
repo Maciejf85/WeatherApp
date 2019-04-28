@@ -41,7 +41,7 @@ Responsywna aplikacja napisana w JavaScript i jQuery.
 
 2. Następnie do `Dark Sky API` wysyłane są współrzędne geograficzne. Zwrotnie pobierane są wszystkie dane dotyczące pogody.
 
-3. Jeśli pogoda dotyczy Polski, z `Airly` zostają pobrane informacje o jakości powietrza i stężeniu pyłków PM1, PM2,5 i PM10.
+3. Jeśli pogoda dotyczy polskiego miasta, z `Airly` zostają pobrane informacje o jakości powietrza i stężeniu pyłków PM1, PM2,5 i PM10 z czujników znajdujących się w danej miejscowości.
 
 4. Na koniec z `World Time` pobierany jest aktualny dzień tygodnia i lokalna godzina.
 
@@ -51,15 +51,17 @@ Responsywna aplikacja napisana w JavaScript i jQuery.
 
 2. Nazwa miasta wysyłana jest do `Graphhopper`. Serwis zwraca nazwę kraju i współrzędne geograficzne.
 
-3. Jeśli dane dotyczą Polski, z `Airly` zostają pobrane informacje o jakości powietrza i stężeniu pyłków PM1, PM2,5 i PM10.
+3. Do `Dark Sky API` wysyłane są współrzędne geograficzne. Zwrotnie pobierane są wszystkie dane dotyczące pogody.
 
-4. Na koniec z `World Time` pobierany jest aktualny dzień tygodnia i lokalna godzina.
+4. Jeśli pogoda dotyczy polskiego miasta, z `Airly` zostają pobrane informacje o jakości powietrza i stężeniu pyłków PM1, PM2,5 i PM10 z czujników znajdujących się w danej miejscowości.
+
+5. Na koniec z `World Time` pobierany jest aktualny dzień tygodnia i lokalna godzina.
 
 <br><br>
 
 ## Prezentacja
 
-**_Dzień/Noc_**
+**_Dzień/Noc_** - przeglądarka zapamiętuje ustawienie.
 
 <img src="http://maciejf.pl/img/weatherApp/gif/black-white.gif"  />
 <br>
@@ -76,3 +78,8 @@ Responsywna aplikacja napisana w JavaScript i jQuery.
 ## Responsive web design
 
 <img src="http://maciejf.pl/img/weatherApp/rwd.jpg"  />
+
+
+### Na koniec
+
+Zapraszam do kliknięcia w link `Demo aplikacji` i sprawdzeniu jak ona działa.
