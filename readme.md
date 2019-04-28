@@ -3,7 +3,7 @@
 <img src="http://maciejf.pl/img/weatherApp/weatherApp4.jpg" width="100%" />
 
 Prosta aplikacja pogodowa dostaraczająca informacje o aktualnych danych metrologicznych.
-Z jej poziomu dowiemy się jaka jest pogoda wielu zakątkach świata a także większości miast polskich.
+Z jej poziomu dowiemy się jaka jest pogoda w wielu zakątkach świata a także większości miast polskich.
 Aplikacja podaje takie informacje jak:
 
 - temperaturę
