@@ -21,7 +21,7 @@ Aplikacja podaje takie informacje jak:
 
 ### Demo aplikacji:
 
-[https://maciejf.pl/weather/](http://maciejf.pl/weather/)
+[https://maciejf.pl/weather/](https://maciejf.pl/weather/)
 
 ## Użyte technologie
 
